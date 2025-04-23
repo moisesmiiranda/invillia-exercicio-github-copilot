@@ -83,11 +83,11 @@ section h3 {
 .activity-card ul li {
   margin-bottom: 8px;
   padding: 10px;
-  background-color: #e3f2fd;
-  border: 1px solid #90caf9;
+  background-color: #e8f5e9; /* Alterado para verde claro */
+  border: 1px solid #a5d6a7; /* Alterado para combinar com o fundo */
   border-radius: 4px;
   font-size: 14px;
-  color: #0d47a1;
+  color: #2e7d32; /* Alterado para verde escuro */
   display: flex;
   align-items: center;
 }
