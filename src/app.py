@@ -19,6 +19,26 @@ current_dir = Path(__file__).parent
 app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
           "static")), name="static")
 
+# Check for participants info in styles.css
+file_path = "src/static/styles.css"
+keyphrase = 'participant'
+minimum_occurrences = 1
+
+try:
+    with open(file_path, 'r') as file:
+        content = file.read()
+    found_occurrences = content.count(keyphrase)
+    if found_occurrences < minimum_occurrences:
+        checks = {
+            "styles_css": {
+                "passed": False,
+                "message": "Please use Copilot to update the web application styling to support participant info."
+            }
+        }
+except FileNotFoundError:
+    raise HTTPException(status_code=404, detail=f"File {file_path} not found")
+
+
 # In-memory activity database
 activities = {
     "Chess Club": {
